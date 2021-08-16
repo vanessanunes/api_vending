@@ -31,3 +31,22 @@ Para a criação, digite no terminal:
 python manage.py createsuperuser
 
 Apareceram algumas perguntas, importante incluir o nome e a senha do usuário
+
+## Method Post
+
+/itens/
+
+Lembrando que cada ´itens´ deve ter apenas um produto com a quantidade desejada.
+
+{
+    "product": {
+        "name": "Telescopio",
+        "price": "150.00"
+    },
+    "quantity": 6
+}
+
+/carts/
+
+Cada ´carts´ pode ter N ´itens´
+

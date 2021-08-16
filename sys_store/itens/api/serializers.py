@@ -10,15 +10,13 @@ class ItemSerializer(ModelSerializer):
         model = Item
         fields = '__all__'
         
-    # def create(self, validated_data):
-    #     print(validated_data)
-    #     product = validated_data['product']
-    #     del validated_data['product']
-    #     itens = 
-    #     import pdb ; pdb.set_trace()
-    #     # item = Item.objects.get(id=1)
-    #     # Product.objects.filter(id=validated_data.)
-    #     import pdb ; pdb.set_trace()
-        
-        
+    def create(self, validated_data):
+        product = validated_data['product']
+        del validated_data['product']
+        validated_data['product'] = self.create_product(product)
+        item = Item.objects.create(**validated_data)
+        return item
+    
+    def create_product(products):
+        return Product.objects.create(**products)
     

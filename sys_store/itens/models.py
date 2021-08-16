@@ -12,6 +12,7 @@ class Item(models.Model):
         return str(self.product)
     
     def save(self, *args, **kwargs):
-        self.price = self.quantity*self.product.price
+        if self.product:
+            self.price = self.quantity*self.product.price
         super(Item, self).save(*args, **kwargs)
         
