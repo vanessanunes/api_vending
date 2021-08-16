@@ -18,8 +18,7 @@ class Cart(models.Model):
     def save(self, *args, **kwargs):
         # super_query = super(Cart, self).get_queryset()
         super(Cart, self).save(*args, **kwargs)
-        # import pdb ; pdb.set_trace()
-        
+        print(self.itens.values())
         amount = 0
         self.total_value = 0
         
