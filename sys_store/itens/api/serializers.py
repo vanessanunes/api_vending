@@ -17,6 +17,6 @@ class ItemSerializer(ModelSerializer):
         item = Item.objects.create(**validated_data)
         return item
     
-    def create_product(products):
+    def create_product(self, products):
         return Product.objects.create(**products)
     
