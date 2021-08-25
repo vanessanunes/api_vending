@@ -10,6 +10,8 @@ class ItemSerializer(ModelSerializer):
         model = Item
         fields = '__all__'
         
+        read_only=True
+        
     def create(self, validated_data):
         product = validated_data['product']
         del validated_data['product']

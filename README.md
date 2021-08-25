@@ -50,3 +50,20 @@ Lembrando que cada ´itens´ deve ter apenas um produto com a quantidade desejad
 
 Cada ´carts´ pode ter N ´itens´
 
+{
+    "client": {
+        "name": "Nome do Cliente"
+    },
+    "seller": {
+        "name": "Nome de Vendedor"
+    },
+    "itens": [
+            {
+                "product": {
+                    "name": "Nome do Produto",
+                    "price": "10.00"
+                },
+                "quantity": 2
+            }
+        ]
+}
