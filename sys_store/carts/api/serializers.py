@@ -32,8 +32,8 @@ class CartSerializer(ModelSerializer):
             commission = 5/100
         else:
             commission = 4/100
-
-        return commission
+        
+        cart.commission = commission*float(cart.total_value)
 
     def return_total_value(self, itens):
 
@@ -73,15 +73,12 @@ class CartSerializer(ModelSerializer):
 
         cart = Cart.objects.create(**validated_data)
 
-        item_instance = self.create_itens(itens, cart)
+        self.create_itens(itens, cart)
 
         cart.client = client_instance
         cart.seller = seller_instance
         cart.total_value = self.return_total_value(itens)
-
-        commission = self.calculate_commission(cart)
-
-        cart.commission = commission*float(cart.total_value)
+        self.calculate_commission(cart)
 
         cart.save()
 

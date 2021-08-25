@@ -8,7 +8,11 @@ class Item(models.Model):
     
     readonly_fields = ('price')
     
+    class Meta:
+        db_table = 'Item'
+    
     def __str__(self):
+        return f"{self.product} ({self.quantity} unidades por R$ {self.price} cada)"
         return str(self.product)
     
     def save(self, *args, **kwargs):
