@@ -33,34 +33,40 @@ python manage.py createsuperuser
 Apareceram algumas perguntas, importante incluir o nome e a senha do usuário
 
 ## Gerar Token
-Para gerar token e ter acesso a APIs, faça uma requisição POST para URL /api-token-auth/ digitando usuário e senha, te retornará um token.
-Esse token habilitará o usuário a usar a API
+Para gerar token e ter acesso a APIs, faça uma requisição POST para URL ```/api-token-auth/``` digitando usuário e senha, te retornará um token.
+Esse token habilitará o usuário a usar a API.
+Em casa request feita para qualquer endoint, deve-se passar no Header o seguinte valor:
+
+```Authorization: Token TOKEN_GERADO```
 
 ## Method POST
 
-/clients/
-
+### /clients/
+```
 {
     "name": "Nome do Cliente"
 }
+```
 
-/sellers/
+### /sellers/
+```
 {
     "name": "Nome do Vendedor"
 }
+```
 
-
-/products/
-
+### /products/
+```
 {
     "name": "Nome do Produto",
     "price": "15.00"
 }
+```
 
-/itens/
+### /itens/
 
 Lembrando que cada ´itens´ deve ter apenas um produto com a quantidade desejada.
-
+```
 {
     "product": {
         "name": "Telescopio",
@@ -68,11 +74,12 @@ Lembrando que cada ´itens´ deve ter apenas um produto com a quantidade desejad
     },
     "quantity": 6
 }
+```
 
-/carts/
+### /carts/
 
 Cada ´carts´ pode ter N ´itens´
-
+```
 {
     "client": {
         "name": "Nome do Cliente"
@@ -90,3 +97,4 @@ Cada ´carts´ pode ter N ´itens´
         }
     ]
 }
+```
