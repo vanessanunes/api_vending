@@ -1,9 +1,10 @@
 from sellers.models import Seller
 from sellers.api.serializers import SellerSerializer
 from rest_framework import viewsets
-
+from rest_framework.permissions import IsAuthenticated
 class SellerViewSet(viewsets.ModelViewSet):
     serializer_class = SellerSerializer
+    permission_classes = [IsAuthenticated]
     
     def get_queryset(self):
         return Seller.objects.all()

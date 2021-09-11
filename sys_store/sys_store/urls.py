@@ -22,6 +22,7 @@ from django.contrib import admin
 from django.urls import path
 from django.urls.conf import include
 from rest_framework.routers import DefaultRouter
+from rest_framework.authtoken import views
 
 
 router = DefaultRouter()
@@ -34,4 +35,5 @@ router.register(r'carts', CartViewSet, basename='Cart')
 urlpatterns = [
     path('', include(router.urls)),
     path('admin/', admin.site.urls),
+    path('api-token-auth/', views.obtain_auth_token)
 ]

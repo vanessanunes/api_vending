@@ -1,9 +1,10 @@
 from clients.models import Client
 from clients.api.serializers import ClientSerializer
 from rest_framework import viewsets
-
+from rest_framework.permissions import IsAuthenticated
 class ClientViewSet(viewsets.ModelViewSet):
     serializer_class = ClientSerializer
+    permission_classes = [IsAuthenticated]
     
     def get_queryset(self):
         return Client.objects.all()

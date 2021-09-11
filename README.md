@@ -32,7 +32,30 @@ python manage.py createsuperuser
 
 Apareceram algumas perguntas, importante incluir o nome e a senha do usuário
 
-## Method Post
+## Gerar Token
+Para gerar token e ter acesso a APIs, faça uma requisição POST para URL /api-token-auth/ digitando usuário e senha, te retornará um token.
+Esse token habilitará o usuário a usar a API
+
+## Method POST
+
+/clients/
+
+{
+    "name": "Nome do Cliente"
+}
+
+/sellers/
+{
+    "name": "Nome do Vendedor"
+}
+
+
+/products/
+
+{
+    "name": "Nome do Produto",
+    "price": "15.00"
+}
 
 /itens/
 
@@ -58,12 +81,12 @@ Cada ´carts´ pode ter N ´itens´
         "name": "Nome de Vendedor"
     },
     "itens": [
-            {
-                "product": {
-                    "name": "Nome do Produto",
-                    "price": "10.00"
-                },
-                "quantity": 2
-            }
-        ]
+        {
+            "product": {
+                "name": "Nome do Produto",
+                "price": "10.00"
+            },
+            "quantity": 2
+        }
+    ]
 }

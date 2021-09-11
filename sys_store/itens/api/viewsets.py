@@ -1,8 +1,11 @@
 from itens.models import Item
 from itens.api.serializers import ItemSerializer
 from rest_framework import viewsets
+from rest_framework.permissions import IsAuthenticated
+
 
 class ItemViewSet(viewsets.ModelViewSet):
+    permission_classes = [IsAuthenticated]
     serializer_class = ItemSerializer
     
     def get_queryset(self):

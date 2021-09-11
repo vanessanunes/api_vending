@@ -1,9 +1,11 @@
 from carts.models import Cart
 from carts.api.serializers import CartSerializer
 from rest_framework import viewsets
+from rest_framework.permissions import IsAuthenticated
 
 class CartViewSet(viewsets.ModelViewSet):
     serializer_class = CartSerializer
+    permission_classes = [IsAuthenticated]
     
     def get_queryset(self):
         return Cart.objects.all()
